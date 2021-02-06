@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: "1:58698453825:web:5b046f683c6479a6b887c0",
   measurementId: "G-T06SSZS5L4",
 };
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return; // IF USER SIGNED OUT
   const userRef = firestore.doc(`users/${userAuth.uid}`);
@@ -31,6 +32,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 } else {
